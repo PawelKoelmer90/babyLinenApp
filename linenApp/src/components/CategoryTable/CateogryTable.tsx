@@ -2,12 +2,11 @@ import CategoryTableItem from "./CategoryTableItem";
 import "./categoryTable.scss";
 import { useEffect, useState } from "react";
 import { TableItem } from "../../types/types";
-import {
-  setTableToLocalStorage,
-} from "../../storage/localStorage";
+import { setTableToLocalStorage } from "../../storage/localStorage";
 import PlusIcon from "../../assets/icons/plusIcon.svg";
 import AddItemModal from "./AddItemModal";
 import { tableItems } from "../../data/tablesCategories";
+import CategoryTableItemsContainer from "./CategoryTableItemsContainer";
 
 interface Props {
   tableTitle: string;
@@ -75,20 +74,21 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
             <PlusIcon />
           </div>
         </div>
-        <div>
-          {items.map((item, index) => {
-            return (
-              <CategoryTableItem
-                key={item.id}
-                item={item}
-                index={index}
-                lastItem={index === items.length - 1}
-                changeItem={(index) => handleChangeItem(index)}
-                deleteItem={(index) => deleteItem(index)}
-              />
-            );
-          })}
-        </div>
+        <table>
+          <CategoryTableItemsContainer>
+            {items.map((item, index) => {
+              return (
+                <CategoryTableItem
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  changeItem={(index) => handleChangeItem(index)}
+                  deleteItem={(index) => deleteItem(index)}
+                />
+              );
+            })}
+          </CategoryTableItemsContainer>
+        </table>
       </div>
     </>
   );
