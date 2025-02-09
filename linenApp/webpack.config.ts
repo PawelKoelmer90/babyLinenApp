@@ -15,8 +15,35 @@ const config: Configuration = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"],
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
+            },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: [{
+                    loader: '@svgr/webpack',
+                    options: {
+                        svgo: true, // Enable SVGO optimization
+                        svgoConfig: {
+                            plugins: [
+                                {
+                                    name: 'preset-default',
+                                    params: {
+                                        overrides: {
+                                            removeViewBox: false,
+
+                                        }
+                                    }
+                                },
+                            ]
+                        },
+                    }
+                }],
             },
         ],
     },
@@ -32,6 +59,9 @@ const config: Configuration = {
             patterns: [{ from: "public" }],
         }),
     ],
+
 };
+
+
 
 export default config;

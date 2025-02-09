@@ -1,0 +1,23 @@
+.item__container{
+  display: grid;
+  grid-template-columns: 4fr repeat(5, 1fr);
+  margin: 0 16px 0 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  border-left: #869291 1px solid;
+  border-right: #869291 1px solid;
+}
+.item__checkbox-container {
+  display: flex;
+  align-self: center;
+  width: 15px;
+  height: 15px;
+}
+
+.item__delete-icon {
+  width: 15px; height: 15px;
+}
+
+.bottom-border {
+  border-bottom: #869291 1px solid;
+}
