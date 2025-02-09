@@ -1,21 +1,16 @@
 import "./checkbox.scss";
 
-
 interface Props {
   isChecked: boolean;
   changeChecked: () => void;
 }
 
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
-  // const [checked, setChecked] = useState(isChecked);
-  console.log("checkbox", { isChecked });
-
   return (
     <div
       className={"checkbox__field"}
       onClick={() => {
         changeChecked();
-        // setChecked((prev) => !prev);
       }}
     >
       {isChecked && (

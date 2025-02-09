@@ -1,7 +1,9 @@
+import "./CategoryTableItemContainer.scss";
+
 const CategoryTableItemsContainer = ({ ...props }) => {
   return (
     <>
-      <thead>
+      <tbody>
         <tr>
           <th>Nazwa</th>
           <th>Ilość do kupienia</th>
@@ -9,8 +11,8 @@ const CategoryTableItemsContainer = ({ ...props }) => {
           <th>Cena używanego</th>
           <th>Kupione</th>
         </tr>
-      </thead>
-      <tbody>{props.children}</tbody>
+        {props.children}
+      </tbody>
     </>
   );
 };

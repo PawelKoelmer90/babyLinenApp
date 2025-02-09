@@ -33,8 +33,6 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
   };
 
   const handleChangeItem = (index: number) => {
-    console.log("handleChangeItem", { index });
-    // items[index].isInStock = !items[index].isInStock;
     setItems((prevState) => {
       const copy = [...prevState];
       const itemCopy = { ...copy[index] };
@@ -44,23 +42,6 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
     });
     setTableToLocalStorage(tableTitle, items);
   };
-
-  // const renderItem = useMemo(() => {
-  //   return items.map((item, index) => {
-  //     return (
-  //       <CategoryTableItem
-  //         key={`item_${index}`}
-  //         item={item}
-  //         index={index}
-  //         lastItem={index === items.length - 1}
-  //         changeItem={(index) => handleChangeItem(index)}
-  //         deleteItem={(index) => deleteItem(index)}
-  //       />
-  //     );
-  //   });
-  // }, [items]);
-
-  console.log({ items });
 
   return (
     <>
