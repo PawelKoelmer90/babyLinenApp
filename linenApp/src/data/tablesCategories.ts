@@ -1,20 +1,4 @@
-import { Table, TableItem } from '../types/types';
-
-export const tablesCategories: Table[] = [
-  { id: 1, tableTitle: 'Wyprawka do szpitala dla Mamy' },
-  { id: 2, tableTitle: 'Akcesoria/Przydatne gadżety' },
-  { id: 3, tableTitle: 'Karmienie: Karmienie piersią/Akcesoria/Butelki' },
-  { id: 4, tableTitle: 'Poza domem: przydatne akcesoria' },
-  { id: 5, tableTitle: 'pokój dziecięcy/kącik niemowlęcy' },
-  { id: 6, tableTitle: 'Higiena/Pielęgnacja/Apteczka' },
-  { id: 7, tableTitle: 'Pierwsze zabawki/Przytulanki' },
-  {
-    id: 8,
-    tableTitle:
-      'Tkaniny- kocyki, otulacze, pieluszki, prześcieradełka, śpiworki',
-  },
-  { id: 9, tableTitle: 'Garderoba noworodka' },
-];
+import { TableItem } from '../types/types';
 
 export const tableItems: TableItem[] = [
   {

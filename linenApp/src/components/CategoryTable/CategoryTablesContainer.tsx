@@ -1,7 +1,9 @@
 import CategoryTable from './CateogryTable';
-import { tablesCategories } from '../../data/tablesCategories';
+import { Table } from '../../types/types';
 
 const CategoryTablesContainer = () => {
+  const tablesCategories: Table[] = [];
+
   return (
     <>
       {tablesCategories.map((item, index) => {

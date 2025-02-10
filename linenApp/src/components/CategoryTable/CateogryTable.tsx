@@ -18,7 +18,6 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    console.log('useEffect');
     setItems([...tableItems]);
   }, []);
 
