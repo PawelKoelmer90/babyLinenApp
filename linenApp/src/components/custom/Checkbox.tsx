@@ -8,7 +8,7 @@ interface Props {
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
   return (
     <>
-      <input type={"checkbox"} onClick={changeChecked} />
+      <input type={"checkbox"} onClick={changeChecked} checked={isChecked} />
     </>
   );
 };
