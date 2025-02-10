@@ -7,26 +7,9 @@ interface Props {
 
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
   return (
-    <div
-      className={"checkbox__field"}
-      onClick={() => {
-        changeChecked();
-      }}
-    >
-      {isChecked && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#000"
-          strokeWidth={4}
-          strokeLinecap={"round"}
-          strokeLinejoin={"round"}
-        >
-          <path d="M20 6L9 17l-5-5"></path>
-        </svg>
-      )}
-    </div>
+    <>
+      <input type={"checkbox"} onClick={changeChecked} />
+    </>
   );
 };
 
