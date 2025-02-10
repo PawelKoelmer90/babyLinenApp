@@ -27,9 +27,6 @@ const CategoryTableItem = ({ item, index, changeItem, deleteItem }: Props) => {
           changeChecked={() => changeItem(index)}
         />
       </td>
-      {/*<th className={"item__delete-icon"} onClick={() => deleteItem(index)}>*/}
-      {/*  <DeleteIcon />*/}
-      {/*</th>*/}
     </tr>
   );
 };
