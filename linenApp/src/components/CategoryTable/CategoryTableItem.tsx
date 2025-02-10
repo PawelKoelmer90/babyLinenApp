@@ -20,7 +20,7 @@ const CategoryTableItem = ({ item, index, changeItem, deleteItem }: Props) => {
       <th scope={'row'}>{item.name}</th>
       <td>{item.quantity}</td>
       <td>{item?.newItemPrice}</td>
-      <td>{item?.secondHandItemPrice}</td>
+      <td>{item?.usedItemPrice}</td>
       <td className={'item__checkbox-container'}>
         <Checkbox
           isChecked={item.isInStock}

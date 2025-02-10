@@ -9,5 +9,6 @@ export interface TableItem {
   isInStock: boolean;
   quantity: number;
   newItemPrice?: number;
-  secondHandItemPrice?: number;
+  usedItemPrice?: number;
+  boughtUsed?: boolean;
 }

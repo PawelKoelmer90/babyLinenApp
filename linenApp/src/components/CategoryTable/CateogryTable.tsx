@@ -5,7 +5,6 @@ import { TableItem } from '../../types/types';
 import { setTableToLocalStorage } from '../../storage/localStorage';
 import PlusIcon from '../../assets/icons/plusIcon.svg';
 import AddItemModal from './AddItemModal';
-import { tableItems } from '../../data/tablesCategories';
 import CategoryTableItemsContainer from './CategoryTableItemsContainer';
 
 interface Props {
@@ -18,7 +17,9 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    setItems([...tableItems]);
+    fetch('http://localhost:3000/items').then((res) =>
+      res.json().then((data) => setItems(data))
+    );
   }, []);
 
   const deleteItem = (indexToDelete: number) => {
