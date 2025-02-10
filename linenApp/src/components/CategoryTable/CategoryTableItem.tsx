@@ -1,6 +1,7 @@
 import { TableItem } from '../../types/types';
 import './categoryItem.scss';
 import Checkbox from '../custom/Checkbox';
+import { useNavigate } from 'react-router';
 
 interface Props {
   item: TableItem;
@@ -10,8 +11,12 @@ interface Props {
 }
 
 const CategoryTableItem = ({ item, index, changeItem, deleteItem }: Props) => {
+  const navigate = useNavigate();
   return (
-    <tr className="row__category-item">
+    <tr
+      className="row__category-item"
+      onClick={() => navigate(`/category/${item.id}`)}
+    >
       <th scope={'row'}>{item.name}</th>
       <td>{item.quantity}</td>
       <td>{item?.newItemPrice}</td>
