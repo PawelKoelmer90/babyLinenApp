@@ -1,16 +1,16 @@
-import { TableItem } from "../types/types";
+import { TableItem } from '../types/types';
 
 enum STORAGE_KEYS {
-  TABLE = "TABLE",
+  TABLE = 'TABLE',
 }
 
 export const setTableToLocalStorage = (
   tableName: string,
-  table: TableItem[],
+  table: TableItem[]
 ) => {
   localStorage.setItem(
     `${tableName}_${STORAGE_KEYS.TABLE}`,
-    JSON.stringify(table),
+    JSON.stringify(table)
   );
 };
 

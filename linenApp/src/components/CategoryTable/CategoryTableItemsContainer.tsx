@@ -1,4 +1,4 @@
-import "./CategoryTableItemContainer.scss";
+import './CategoryTableItemContainer.scss';
 
 const CategoryTableItemsContainer = ({ ...props }) => {
   return (

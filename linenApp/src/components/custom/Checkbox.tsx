@@ -1,4 +1,4 @@
-import "./checkbox.scss";
+import './checkbox.scss';
 
 interface Props {
   isChecked: boolean;
@@ -8,7 +8,7 @@ interface Props {
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
   return (
     <>
-      <input type={"checkbox"} onClick={changeChecked} checked={isChecked} />
+      <input type={'checkbox'} onClick={changeChecked} checked={isChecked} />
     </>
   );
 };

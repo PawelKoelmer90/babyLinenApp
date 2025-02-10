@@ -1,6 +1,6 @@
-import "./addItemModal.scss";
-import { useEffect, useRef } from "react";
-import AddItemForm from "./AddItemForm";
+import './addItemModal.scss';
+import { useEffect, useRef } from 'react';
+import AddItemForm from './AddItemForm';
 
 interface Props {
   closeModal: () => void;
@@ -26,14 +26,14 @@ const AddItemModal = ({ closeModal }: Props) => {
           handleClose();
         }
       }}
-      className={"dialog__container"}
+      className={'dialog__container'}
       style={{
         padding: 0,
         border: 0,
       }}
     >
       <div
-        className={"dialog__modal-body"}
+        className={'dialog__modal-body'}
         onClick={(e) => e.stopPropagation()}
       >
         <div>

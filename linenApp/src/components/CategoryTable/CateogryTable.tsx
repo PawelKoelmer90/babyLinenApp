@@ -1,12 +1,12 @@
-import CategoryTableItem from "./CategoryTableItem";
-import "./categoryTable.scss";
-import { useEffect, useState } from "react";
-import { TableItem } from "../../types/types";
-import { setTableToLocalStorage } from "../../storage/localStorage";
-import PlusIcon from "../../assets/icons/plusIcon.svg";
-import AddItemModal from "./AddItemModal";
-import { tableItems } from "../../data/tablesCategories";
-import CategoryTableItemsContainer from "./CategoryTableItemsContainer";
+import CategoryTableItem from './CategoryTableItem';
+import './categoryTable.scss';
+import { useEffect, useState } from 'react';
+import { TableItem } from '../../types/types';
+import { setTableToLocalStorage } from '../../storage/localStorage';
+import PlusIcon from '../../assets/icons/plusIcon.svg';
+import AddItemModal from './AddItemModal';
+import { tableItems } from '../../data/tablesCategories';
+import CategoryTableItemsContainer from './CategoryTableItemsContainer';
 
 interface Props {
   tableTitle: string;
@@ -18,7 +18,7 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    console.log("useEffect");
+    console.log('useEffect');
     setItems([...tableItems]);
   }, []);
 
@@ -49,9 +49,9 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
         <AddItemModal closeModal={() => setModalVisible(false)} />
       )}
       <div>
-        <div className={"table__header"}>
-          <div className={"table__title"}>{tableTitle}</div>
-          <div className={"table__icon"} onClick={() => setModalVisible(true)}>
+        <div className={'table__header'}>
+          <div className={'table__title'}>{tableTitle}</div>
+          <div className={'table__icon'} onClick={() => setModalVisible(true)}>
             <PlusIcon />
           </div>
         </div>

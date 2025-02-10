@@ -1,7 +1,7 @@
-import React from "react";
-import "./App.scss";
-import { tablesCategories } from "./data/tablesCategories";
-import CategoryTable from "./components/CategoryTable/CateogryTable";
+import React from 'react';
+import './App.scss';
+import { tablesCategories } from './data/tablesCategories';
+import CategoryTable from './components/CategoryTable/CateogryTable';
 
 function App() {
   return (

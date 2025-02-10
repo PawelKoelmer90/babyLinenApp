@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
-import "./addItemForm.scss";
+import { useForm } from 'react-hook-form';
+import './addItemForm.scss';
 
 const AddItemForm = () => {
   const {
@@ -10,23 +10,23 @@ const AddItemForm = () => {
   } = useForm();
 
   return (
-    <form className={"form__container"}>
-      <input placeholder={"Nazwa"} className={""} {...register("name")} />
-      <input placeholder={"Ile sztuk"} className={""} {...register("amount")} />
+    <form className={'form__container'}>
+      <input placeholder={'Nazwa'} className={''} {...register('name')} />
+      <input placeholder={'Ile sztuk'} className={''} {...register('amount')} />
       <input
-        placeholder={"Cena za nowy"}
-        className={""}
-        {...register("price")}
+        placeholder={'Cena za nowy'}
+        className={''}
+        {...register('price')}
       />
       <input
-        placeholder={"Cena za używany"}
-        className={""}
-        {...register("secondHandPrice")}
+        placeholder={'Cena za używany'}
+        className={''}
+        {...register('secondHandPrice')}
       />
       <input
-        placeholder={"Cena za używany"}
-        className={""}
-        {...register("secondHandPrice")}
+        placeholder={'Cena za używany'}
+        className={''}
+        {...register('secondHandPrice')}
       />
     </form>
   );
