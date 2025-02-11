@@ -1,0 +1,21 @@
+.button__nav-button {
+  display: flex;
+  flex: 1;
+  padding: 8px;
+  margin: 0 8px 0 8px;
+  background-color: deepskyblue;
+  border-radius: 10px;
+  border: none;
+  justify-content: center;
+  box-shadow: #869291 0 0 3px 1px;
+
+  &:active {
+    box-shadow: #869291 0 0 1px 1px;
+    outline: #869291 solid 1px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+

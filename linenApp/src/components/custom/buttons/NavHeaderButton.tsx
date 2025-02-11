@@ -8,7 +8,14 @@ interface Props {
 
 const navHeaderButton = ({ buttonTitle, page }: Props) => {
   const navigate = useNavigate();
-  return <button onClick={() => navigate(`${page}`)}>{buttonTitle}</button>;
+  return (
+    <button
+      className={'button__nav-button'}
+      onClick={() => navigate(`${page}`)}
+    >
+      {buttonTitle}
+    </button>
+  );
 };
 
 export default navHeaderButton;

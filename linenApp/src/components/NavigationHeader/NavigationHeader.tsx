@@ -1,9 +1,10 @@
 import NavHeaderButton from '../custom/buttons/NavHeaderButton';
+import './navigationHeader.scss';
 
 const NavigationHeader = ({ ...props }) => {
   return (
     <div>
-      <header>
+      <header className={'header__nav-container'}>
         <NavHeaderButton buttonTitle={'Home Page'} page={'/'} />
         <NavHeaderButton buttonTitle={'Kategorie'} page={'/'} />
         <NavHeaderButton buttonTitle={'Podsumowanie'} page={'/'} />
