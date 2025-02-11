@@ -13,11 +13,11 @@ const CategoryTablesContainer = () => {
 
   return (
     <>
-      {tables.map((item, index) => {
+      {tables.map((item) => {
         return (
           <CategoryTable
             key={`table_${item.id}`}
-            index={index}
+            tableId={item.id}
             tableTitle={item.tableTitle}
           />
         );

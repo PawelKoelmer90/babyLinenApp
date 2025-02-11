@@ -9,10 +9,10 @@ import CategoryTableItemsContainer from './CategoryTableItemsContainer';
 
 interface Props {
   tableTitle: string;
-  index: number;
+  tableId: number;
 }
 
-const CategoryTable = ({ tableTitle, index }: Props) => {
+const CategoryTable = ({ tableTitle, tableId }: Props) => {
   const [items, setItems] = useState<TableItem[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -57,17 +57,19 @@ const CategoryTable = ({ tableTitle, index }: Props) => {
         </div>
         <table>
           <CategoryTableItemsContainer>
-            {items.map((item, index) => {
-              return (
-                <CategoryTableItem
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  changeItem={(index) => handleChangeItem(index)}
-                  deleteItem={(index) => deleteItem(index)}
-                />
-              );
-            })}
+            {items
+              .filter((item) => item.categoryId === tableId)
+              .map((item, index) => {
+                return (
+                  <CategoryTableItem
+                    key={item.id}
+                    item={item}
+                    index={index}
+                    changeItem={(index) => handleChangeItem(index)}
+                    deleteItem={(index) => deleteItem(index)}
+                  />
+                );
+              })}
           </CategoryTableItemsContainer>
         </table>
       </div>

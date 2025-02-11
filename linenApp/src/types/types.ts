@@ -11,4 +11,5 @@ export interface TableItem {
   newItemPrice?: number;
   usedItemPrice?: number;
   boughtUsed?: boolean;
+  categoryId: number;
 }
