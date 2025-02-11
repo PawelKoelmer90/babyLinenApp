@@ -6,7 +6,10 @@ const NavigationHeader = ({ ...props }) => {
     <div>
       <header className={'header__nav-container'}>
         <NavHeaderButton buttonTitle={'Home Page'} page={'/'} />
-        <NavHeaderButton buttonTitle={'Kategorie'} page={'/'} />
+        <NavHeaderButton
+          buttonTitle={'Kategorie'}
+          page={'/change_categories'}
+        />
         <NavHeaderButton buttonTitle={'Podsumowanie'} page={'/'} />
         <NavHeaderButton buttonTitle={'do kupienia'} page={'/'} />
         <NavHeaderButton buttonTitle={'lista prezentowa'} page={'/'} />

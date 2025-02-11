@@ -1,6 +1,6 @@
 import { TableItem } from '../../types/types';
 import './categoryItem.scss';
-import Checkbox from '../custom/Checkbox';
+import Checkbox from '../custom/inputs/Checkbox';
 import { useNavigate } from 'react-router';
 
 interface Props {

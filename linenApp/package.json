@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve",
+    "dev": "webpack serve --history-api-fallback",
     "build": "webpack",
     "lint": "eslint  --fix",
     "json-server": "json-server db.json"

@@ -7,13 +7,14 @@
   ],
   "items": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Wózek",
       "isInStock": "true",
       "quantity": "1",
       "newItemPrice": "3000",
       "usedItemPrice": "700",
-      "boughtUsed": "true"
+      "boughtUsed": "true",
+      "categoryId": "1"
     }
   ]
 }

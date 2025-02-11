@@ -47,9 +47,11 @@ const config: Configuration = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   plugins: [
     new CopyWebpackPlugin({
