@@ -1,5 +1,5 @@
 import './navHeaderButton.scss';
-import { useNavigate } from 'react-router';
+import { Link } from 'react-router';
 
 interface Props {
   buttonTitle: string;
@@ -7,15 +7,10 @@ interface Props {
 }
 
 const navHeaderButton = ({ buttonTitle, page }: Props) => {
-  const navigate = useNavigate();
-  //TODO stosowanie odpowiednio stylowanego Linka wtedy wypada hook i
   return (
-    <button
-      className={'button__nav-button'}
-      onClick={() => navigate(`${page}`)}
-    >
+    <Link className={'button__nav-button'} to={`${page}`}>
       {buttonTitle}
-    </button>
+    </Link>
   );
 };
 

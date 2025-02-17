@@ -3,10 +3,11 @@ import { useEffect, useRef } from 'react';
 import AddItemForm from './AddItemForm';
 
 interface Props {
+  categoryId: number;
   closeModal: () => void;
 }
 
-const AddItemModal = ({ closeModal }: Props) => {
+const AddItemModal = ({ closeModal, categoryId }: Props) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleClose = () => {
@@ -36,10 +37,7 @@ const AddItemModal = ({ closeModal }: Props) => {
         className={'dialog__modal-body'}
         onClick={(e) => e.stopPropagation()}
       >
-        <div>
-          <AddItemForm />
-          <button>Dodaj</button>
-        </div>
+        <AddItemForm />
       </div>
     </dialog>
   );

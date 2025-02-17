@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Table } from '../../types/types';
 import CustomInput from '../../components/custom/inputs/CustomInput';
 import DeleteIcon from '../../assets/icons/deleteIcon.svg';
 import './changeCategoryPage.scss';
 
 const ChangeCategoriesPage = () => {
+  const ref = useRef<HTMLInputElement>(null);
   const [listOfCategories, setListOfCategories] = useState<Table[]>([]);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const ChangeCategoriesPage = () => {
     return (
       <ol>
         {listOfCategories.map((category) => (
-          <li className={'list__element'}>
+          <li className={'list__element'} key={category.id}>
             {category.tableTitle}
             <div
               onClick={() => {
@@ -55,22 +56,32 @@ const ChangeCategoriesPage = () => {
       </ol>
     );
   }, [listOfCategories.length]);
-
+  // submitButton={true}
+  // submitButtonText={'Dodaj kategorię'}
+  // submitButtonFunction={(categoryName) => {
+  //
+  // }}
   return (
     <>
       <CustomInput
-        placeholder={'Dodaj kategorię'}
+        placeholder={'Category name'}
         className={'add-category__input'}
         type={'text'}
-        submitButton={true}
-        submitButtonText={'Dodaj kategorię'}
-        submitButtonFunction={(categoryName) => {
-          if (categoryName.trim().length > 0)
-            handleAddCategory(categoryName).then(() =>
-              getFreshListOfCategories()
-            );
-        }}
+        ref={ref}
       />
+      <button
+        onClick={() => {
+          if (ref.current != null) {
+            ref.current.value.trim().length > 0 &&
+              handleAddCategory(ref.current.value).then(() =>
+                getFreshListOfCategories()
+              );
+            ref.current.value = '';
+          }
+        }}
+      >
+        Add category
+      </button>
       {renderCategories}
     </>
   );

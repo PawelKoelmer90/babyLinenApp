@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react';
 const CategoryTablesContainer = () => {
   const [tables, setTables] = useState<Table[]>([]);
 
-  //TODO poprawić dokończyć
-
   useEffect(() => {
     const fun = async () => {
       if (!!tables.length) return;

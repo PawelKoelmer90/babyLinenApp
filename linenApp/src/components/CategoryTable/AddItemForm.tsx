@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './addItemForm.scss';
+import CustomInput from '../custom/inputs/CustomInput';
 
 const AddItemForm = () => {
   const {
@@ -11,21 +12,29 @@ const AddItemForm = () => {
 
   return (
     <form className={'form__container'}>
-      <input placeholder={'Nazwa'} className={''} {...register('name')} />
-      <input placeholder={'Ile sztuk'} className={''} {...register('amount')} />
-      <input
+      <CustomInput
+        placeholder={'Nazwa'}
+        className={'form__input'}
+        {...register('name')}
+      />
+      <CustomInput
+        placeholder={'Ile sztuk'}
+        className={'form__input'}
+        {...register('amount')}
+      />
+      <CustomInput
         placeholder={'Cena za nowy'}
-        className={''}
+        className={'form__input'}
         {...register('price')}
       />
-      <input
+      <CustomInput
         placeholder={'Cena za używany'}
-        className={''}
+        className={'form__input'}
         {...register('secondHandPrice')}
       />
-      <input
+      <CustomInput
         placeholder={'Cena za używany'}
-        className={''}
+        className={'form__input'}
         {...register('secondHandPrice')}
       />
     </form>
