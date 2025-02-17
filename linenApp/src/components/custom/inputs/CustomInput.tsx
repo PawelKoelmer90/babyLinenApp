@@ -1,8 +1,9 @@
 import React, { HTMLInputTypeAttribute, useRef, useState } from 'react';
 import './customInput.scss';
 
+//TODO wyprowadzic submit do elementu osobnego potem tylko import componentu
+
 interface Props {
-  checked?: boolean;
   className?: string;
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -11,6 +12,7 @@ interface Props {
   submitButtonFunction?: (value: string) => void;
   submitButtonText?: string;
   type?: HTMLInputTypeAttribute;
+  focusVisible?: boolean;
 }
 
 const CustomInput = ({
@@ -20,6 +22,7 @@ const CustomInput = ({
   submitButton,
   submitButtonText,
   submitButtonFunction,
+  focusVisible,
 }: Props) => {
   const [value, setValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
@@ -29,12 +32,12 @@ const CustomInput = ({
       inputRef.current.value = '';
     }
   };
-
+  //TODO merge className utility
   return (
     <>
       <input
         ref={inputRef}
-        className={className}
+        className={`${className}`}
         placeholder={placeholder}
         type={type}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

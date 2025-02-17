@@ -1,11 +1,24 @@
-import CategoryTableItem from './CategoryTableItem';
+import CategoryTableItem from '../../components/CategoryTable/CategoryTableItem';
 import './categoryTable.scss';
 import { useEffect, useState } from 'react';
 import { TableItem } from '../../types/types';
 import { setTableToLocalStorage } from '../../storage/localStorage';
 import PlusIcon from '../../assets/icons/plusIcon.svg';
-import AddItemModal from './AddItemModal';
-import CategoryTableItemsContainer from './CategoryTableItemsContainer';
+import AddItemModal from '../../components/CategoryTable/AddItemModal';
+import CategoryTableItemsContainer from '../../components/CategoryTable/CategoryTableItemsContainer';
+
+//TODO Paginacja ?
+//TODO controled components - wiedza
+//Todo wszystkie teksty po angielsku
+//todo Generyczny custom hook do pobierania danych
+//TODO Responsive design
+//Todo widoki RWD -> zmiana typu z wielkością urządzenia
+//TODO Fix Navigation
+//Todo Categorie z lewej strony zaiweszone
+//Todo Ekran logowania -> symulacja logowania
+//Todo Akcja wylogowania
+//Todo konfiguracja ENV
+//TODO Base Url
 
 interface Props {
   tableTitle: string;
@@ -46,7 +59,10 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
   return (
     <>
       {modalVisible && (
-        <AddItemModal closeModal={() => setModalVisible(false)} />
+        <AddItemModal
+          closeModal={() => setModalVisible(false)}
+          categoryId={tableId}
+        />
       )}
       <div>
         <div className={'table__header'}>
@@ -55,23 +71,21 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
             <PlusIcon />
           </div>
         </div>
-        <table>
-          <CategoryTableItemsContainer>
-            {items
-              .filter((item) => item.categoryId === tableId)
-              .map((item, index) => {
-                return (
-                  <CategoryTableItem
-                    key={item.id}
-                    item={item}
-                    index={index}
-                    changeItem={(index) => handleChangeItem(index)}
-                    deleteItem={(index) => deleteItem(index)}
-                  />
-                );
-              })}
-          </CategoryTableItemsContainer>
-        </table>
+        <CategoryTableItemsContainer>
+          {items
+            .filter((item) => item.categoryId === tableId)
+            .map((item, index) => {
+              return (
+                <CategoryTableItem
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  changeItem={(index) => handleChangeItem(index)}
+                  deleteItem={(index) => deleteItem(index)}
+                />
+              );
+            })}
+        </CategoryTableItemsContainer>
       </div>
     </>
   );

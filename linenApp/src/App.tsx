@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import CategoryTablesContainer from './components/CategoryTable/CategoryTablesContainer';
 import ItemDetails from './components/CategoryTable/ItemDetails';
 import NavigationHeader from './components/NavigationHeader/NavigationHeader';
-import ChangeCategoriesPage from './Pages/ChangeCategoriesPage';
+import ChangeCategoriesPage from './Pages/ChangeCategories/ChangeCategoriesPage';
+
+//TODO sciezki z myślnikiem
 
 function App() {
   return (

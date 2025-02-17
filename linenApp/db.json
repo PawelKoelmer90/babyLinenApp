@@ -1,12 +1,8 @@
 {
   "categories": [
     {
-      "id": "1",
-      "tableTitle": "Wyprawka do szpitala dla Mamy"
-    },
-    {
-      "id": "3626",
-      "tableTitle": "asd"
+      "id": "8d7f",
+      "tableTitle": "Cos tam"
     }
   ],
   "items": [
@@ -18,7 +14,7 @@
       "newItemPrice": "3000",
       "usedItemPrice": "700",
       "boughtUsed": "true",
-      "categoryId": "1"
+      "categoryId": null
     }
   ]
 }

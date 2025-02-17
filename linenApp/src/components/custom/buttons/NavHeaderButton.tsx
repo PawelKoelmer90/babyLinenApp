@@ -8,6 +8,7 @@ interface Props {
 
 const navHeaderButton = ({ buttonTitle, page }: Props) => {
   const navigate = useNavigate();
+  //TODO stosowanie odpowiednio stylowanego Linka wtedy wypada hook i
   return (
     <button
       className={'button__nav-button'}

@@ -1,19 +1,12 @@
 import './CategoryTableItemContainer.scss';
+import TableHeader from './TableHeader';
 
 const CategoryTableItemsContainer = ({ ...props }) => {
   return (
-    <>
-      <tbody>
-        <tr>
-          <th>Nazwa</th>
-          <th>Ilość do kupienia</th>
-          <th>Cena nowego</th>
-          <th>Cena używanego</th>
-          <th>Kupione</th>
-        </tr>
-        {props.children}
-      </tbody>
-    </>
+    <table>
+      <TableHeader />
+      <tbody>{props.children}</tbody>
+    </table>
   );
 };
 

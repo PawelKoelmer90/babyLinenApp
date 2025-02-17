@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Table } from '../types/types';
-import CustomInput from '../components/custom/inputs/CustomInput';
-import DeleteIcon from '../assets/icons/deleteIcon.svg';
+import { Table } from '../../types/types';
+import CustomInput from '../../components/custom/inputs/CustomInput';
+import DeleteIcon from '../../assets/icons/deleteIcon.svg';
 import './changeCategoryPage.scss';
 
 const ChangeCategoriesPage = () => {

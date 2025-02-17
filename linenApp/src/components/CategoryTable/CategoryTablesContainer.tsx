@@ -1,14 +1,24 @@
-import CategoryTable from './CateogryTable';
+import CategoryTable from '../../Pages/CategoryTables/CateogryTable';
 import { Table } from '../../types/types';
 import { useEffect, useState } from 'react';
 
 const CategoryTablesContainer = () => {
   const [tables, setTables] = useState<Table[]>([]);
 
+  //TODO poprawić dokończyć
+
   useEffect(() => {
-    fetch('http://localhost:3000/categories').then((res) =>
-      res.json().then((data) => setTables(data))
-    );
+    const fun = async () => {
+      if (!!tables.length) return;
+      try {
+        const response = await fetch('http://localhost:3000/categories');
+        const data = await response.json();
+        setTables(data);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fun();
   }, []);
 
   return (
