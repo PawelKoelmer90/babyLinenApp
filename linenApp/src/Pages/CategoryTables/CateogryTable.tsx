@@ -11,7 +11,6 @@ import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 //TODO Paginacja ?
 //TODO Responsive design
 //Todo widoki RWD -> zmiana typu z wielkością urządzenia
-//TODO Fix Navigation
 //Todo Categorie z lewej strony zaiweszone
 //Todo Ekran logowania -> symulacja logowania
 //Todo Akcja wylogowania
@@ -19,7 +18,7 @@ import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 
 interface Props {
   tableTitle: string;
-  tableId: number | undefined;
+  tableId: string | undefined;
 }
 
 const CategoryTable = ({ tableTitle, tableId }: Props) => {
@@ -29,7 +28,7 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
 
   useEffect(() => {
     const fetchTablesData = async () => {
-      const data = await fetchData(FetchLink.CATEGORIES);
+      const data = await fetchData(FetchLink.ITEMS);
       setItems(data);
     };
     fetchTablesData();
@@ -53,7 +52,6 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
       copy[index] = itemCopy;
       return copy;
     });
-    setTableToLocalStorage(tableTitle, items);
   };
 
   return (

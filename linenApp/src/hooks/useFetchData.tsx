@@ -1,3 +1,5 @@
+import { TableItem } from '../types/types';
+
 export enum FetchLink {
   CATEGORIES = 'categories',
   ITEMS = 'items',
@@ -15,7 +17,24 @@ export const useFetchData = () => {
     }
   };
 
-  const deleteItem = async (urlLink: FetchLink, id: number | undefined) => {
+  const updateTableItem = async (
+    itemId: string | undefined,
+    item: TableItem
+  ) => {
+    try {
+      await fetch(`${baseUrl}/${FetchLink.ITEMS}/${itemId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...item }),
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteItem = async (urlLink: FetchLink, id: string | undefined) => {
     try {
       await fetch(`${baseUrl}/${urlLink}/${id}`, { method: 'DELETE' });
     } catch (error) {
@@ -37,5 +56,5 @@ export const useFetchData = () => {
     }
   };
 
-  return { fetchData, deleteItem, postItem };
+  return { fetchData, deleteItem, postItem, updateTableItem };
 };

@@ -1,15 +1,20 @@
 {
-  "categories": [],
+  "categories": [
+    {
+      "id": "f345",
+      "tableTitle": "Pierwsza"
+    }
+  ],
   "items": [
     {
-      "id": "1",
-      "name": "Wózek",
-      "isInStock": true,
-      "quantity": "1",
-      "newItemPrice": "3000",
-      "usedItemPrice": "700",
-      "boughtUsed": "true",
-      "categoryId": null
+      "id": "583a",
+      "name": "adsad",
+      "quantity": "4",
+      "newItemPrice": "1200",
+      "usedItemPrice": "200",
+      "categoryId": "f345",
+      "boughtUsed": false,
+      "isInStock": true
     }
   ]
 }

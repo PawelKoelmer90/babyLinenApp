@@ -1,9 +1,9 @@
 import './addItemModal.scss';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import AddItemForm from './AddItemForm';
 
 interface Props {
-  categoryId: number | undefined;
+  categoryId: string | undefined;
   closeModal: () => void;
 }
 
@@ -15,6 +15,20 @@ const AddItemModal = ({ closeModal, categoryId }: Props) => {
     dialogRef.current?.close();
   };
 
+  const handleBackdropClick = (
+    event: React.MouseEvent<HTMLDialogElement, MouseEvent>
+  ) => {
+    let rect = event.currentTarget.getBoundingClientRect();
+    if (
+      rect.left > event.clientX ||
+      rect.right < event.clientX ||
+      rect.top > event.clientY ||
+      rect.bottom < event.clientY
+    ) {
+      handleClose();
+    }
+  };
+
   useEffect(() => {
     dialogRef.current?.showModal();
   }, []);
@@ -23,21 +37,15 @@ const AddItemModal = ({ closeModal, categoryId }: Props) => {
     <dialog
       ref={dialogRef}
       onClick={(event) => {
-        if (event.target === event.currentTarget) {
-          handleClose();
-        }
+        handleBackdropClick(event);
       }}
       className={'dialog__container'}
-      style={{
-        padding: 0,
-        border: 0,
-      }}
     >
       <div
         className={'dialog__modal-body'}
         onClick={(e) => e.stopPropagation()}
       >
-        <AddItemForm />
+        <AddItemForm categoryId={categoryId} />
       </div>
     </dialog>
   );

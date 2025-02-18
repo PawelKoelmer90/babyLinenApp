@@ -1,42 +1,62 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import './addItemForm.scss';
 import CustomInput from '../custom/inputs/CustomInput';
+import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 
-const AddItemForm = () => {
+type Inputs = {
+  name: string;
+  quantity: number;
+  newItemPrice: number;
+  usedItemPrice: number;
+};
+
+interface Props {
+  categoryId: string | undefined;
+}
+
+const AddItemForm = ({ categoryId }: Props) => {
+  const { postItem } = useFetchData();
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    await postItem(FetchLink.ITEMS, {
+      ...data,
+      categoryId,
+      boughtUsed: false,
+      isInStock: false,
+    });
+    console.log(categoryId);
+    console.log(data);
+  };
 
   return (
-    <form className={'form__container'}>
+    <form className={'form__container'} onSubmit={handleSubmit(onSubmit)}>
       <CustomInput
         placeholder={'Nazwa'}
         className={'form__input'}
-        {...register('name')}
+        {...register('name', { required: true })}
       />
       <CustomInput
         placeholder={'Ile sztuk'}
         className={'form__input'}
-        {...register('amount')}
+        {...register('quantity', { required: true })}
       />
       <CustomInput
         placeholder={'Cena za nowy'}
         className={'form__input'}
-        {...register('price')}
+        {...register('newItemPrice', { required: true })}
       />
       <CustomInput
         placeholder={'Cena za używany'}
         className={'form__input'}
-        {...register('secondHandPrice')}
+        {...register('usedItemPrice')}
       />
-      <CustomInput
-        placeholder={'Cena za używany'}
-        className={'form__input'}
-        {...register('secondHandPrice')}
-      />
+      <CustomInput type={'submit'} className={'form__submit'} />
     </form>
   );
 };

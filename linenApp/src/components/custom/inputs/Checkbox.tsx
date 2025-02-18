@@ -6,7 +6,6 @@ interface Props {
 }
 
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
-  //TODO add function to update element in table
   return (
     <>
       <input
@@ -16,7 +15,6 @@ const Checkbox = ({ isChecked, changeChecked }: Props) => {
           changeChecked();
         }}
         checked={isChecked}
-        onChange={() => console.log('xxx')}
       />
     </>
   );
