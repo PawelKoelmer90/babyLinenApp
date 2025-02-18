@@ -15,3 +15,11 @@ thumb
 sketch
 
 !/linenApp/.env
+/linenApp/.env.example
+/.idea/.gitignore
+/.idea/linenApp.iml
+/.idea/modules.xml
+/linenApp/package-lock.json
+/.idea/prettier.xml
+/.idea/vcs.xml
+/.idea/watcherTasks.xml
