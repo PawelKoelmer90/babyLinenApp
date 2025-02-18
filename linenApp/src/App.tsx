@@ -4,19 +4,25 @@ import CategoryTablesContainer from './components/CategoryTable/CategoryTablesCo
 import ItemDetails from './components/CategoryTable/ItemDetails';
 import NavigationHeader from './components/NavigationHeader/NavigationHeader';
 import ChangeCategoriesPage from './Pages/ChangeCategories/ChangeCategoriesPage';
+import { CategoriesContextProvider } from './store/categoriesContext';
 
 function App() {
   return (
-    <BrowserRouter basename={'/'}>
-      <NavigationHeader />
-      <div style={{ paddingTop: '2rem' }}>
-        <Routes>
-          <Route path="/" element={<CategoryTablesContainer />} />
-          <Route path="/category/:id" element={<ItemDetails />} />
-          <Route path="/change-categories" element={<ChangeCategoriesPage />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <CategoriesContextProvider>
+      <BrowserRouter basename={'/'}>
+        <NavigationHeader />
+        <div style={{ paddingTop: '2rem' }}>
+          <Routes>
+            <Route path="/" element={<CategoryTablesContainer />} />
+            <Route path="/category/:id" element={<ItemDetails />} />
+            <Route
+              path="/change-categories"
+              element={<ChangeCategoriesPage />}
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CategoriesContextProvider>
   );
 }
 

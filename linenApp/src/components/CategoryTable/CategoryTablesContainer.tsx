@@ -1,27 +1,12 @@
 import CategoryTable from '../../Pages/CategoryTables/CateogryTable';
-import { Table } from '../../types/types';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { CategoriesContext } from '../../store/categoriesContext';
 
 const CategoryTablesContainer = () => {
-  const [tables, setTables] = useState<Table[]>([]);
-
-  useEffect(() => {
-    const fun = async () => {
-      if (!!tables.length) return;
-      try {
-        const response = await fetch('http://localhost:3000/categories');
-        const data = await response.json();
-        setTables(data);
-      } catch (err) {
-        console.warn(err);
-      }
-    };
-    fun();
-  }, []);
-
+  const { categories } = useContext(CategoriesContext);
   return (
     <>
-      {tables.map((item) => {
+      {categories.map((item) => {
         return (
           <CategoryTable
             key={`table_${item.id}`}

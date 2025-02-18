@@ -3,6 +3,7 @@ $headerHeight: 40px;
 .header__nav-container {
   flex: 1;
   display: flex;
+  box-sizing: border-box;
   position: fixed;
   width: 100%;
   flex-direction: row;

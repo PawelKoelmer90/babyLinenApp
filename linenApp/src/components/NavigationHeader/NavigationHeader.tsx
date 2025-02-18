@@ -3,7 +3,7 @@ import './navigationHeader.scss';
 
 const NavigationHeader = ({ ...props }) => {
   return (
-    <div>
+    <>
       <header className={'header__nav-container'}>
         <NavHeaderButton buttonTitle={'Home Page'} page={'/'} />
         <NavHeaderButton
@@ -15,7 +15,7 @@ const NavigationHeader = ({ ...props }) => {
         <NavHeaderButton buttonTitle={'Present list'} page={'/'} />
       </header>
       {props.children}
-    </div>
+    </>
   );
 };
 

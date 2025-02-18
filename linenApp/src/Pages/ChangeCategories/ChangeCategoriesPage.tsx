@@ -1,46 +1,31 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Table } from '../../types/types';
+import { useContext, useMemo, useRef } from 'react';
 import CustomInput from '../../components/custom/inputs/CustomInput';
 import DeleteIcon from '../../assets/icons/deleteIcon.svg';
 import './changeCategoryPage.scss';
-import { FetchLink, useFetchData } from '../../hooks/useFetchData';
+import { CategoriesContext } from '../../store/categoriesContext';
 
 const ChangeCategoriesPage = () => {
+  const { categories, addNewCategory, deleteCategory } =
+    useContext(CategoriesContext);
   const ref = useRef<HTMLInputElement>(null);
-  const [listOfCategories, setListOfCategories] = useState<Table[]>([]);
-  const { fetchData, deleteItem, postItem } = useFetchData();
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const data = await fetchData(FetchLink.CATEGORIES);
-      setListOfCategories(data);
-    };
-    fetchCategories();
-  }, []);
-
-  const getFreshListOfCategories = async () => {
-    const data = await fetchData(FetchLink.CATEGORIES);
-    console.log(data);
-    setListOfCategories(data);
-  };
 
   const handleAddItem = async (title: string) => {
-    await postItem(FetchLink.CATEGORIES, {
-      tableTitle: title,
-    });
-    await getFreshListOfCategories();
+    addNewCategory(title);
+  };
+
+  const handleDeleteItem = async (id: string | undefined) => {
+    await deleteCategory(id);
   };
 
   const renderCategories = useMemo(() => {
     return (
       <ol>
-        {listOfCategories.map((category) => (
+        {categories.map((category) => (
           <li className={'list__element'} key={category.id}>
             {category.tableTitle}
             <div
               onClick={() => {
-                deleteItem(FetchLink.CATEGORIES, category.id);
-                getFreshListOfCategories();
+                handleDeleteItem(category.id);
               }}
             >
               <DeleteIcon />
@@ -49,7 +34,7 @@ const ChangeCategoriesPage = () => {
         ))}
       </ol>
     );
-  }, [listOfCategories]);
+  }, [categories]);
 
   return (
     <>
@@ -64,7 +49,6 @@ const ChangeCategoriesPage = () => {
           if (ref.current != null) {
             ref.current.value.trim().length > 0 &&
               handleAddItem(ref.current.value);
-
             ref.current.value = '';
           }
         }}
