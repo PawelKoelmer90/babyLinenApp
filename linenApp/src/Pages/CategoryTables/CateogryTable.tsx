@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { TableItem } from '../../types/types';
 import { setTableToLocalStorage } from '../../storage/localStorage';
 import PlusIcon from '../../assets/icons/plusIcon.svg';
-import AddItemModal from '../../components/CategoryTable/AddItemModal';
+import AddItemModal from '../../components/AddItemModal/AddItemModal';
 import CategoryTableItemsContainer from '../../components/CategoryTable/CategoryTableItemsContainer';
 import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 

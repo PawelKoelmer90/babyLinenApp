@@ -37,22 +37,22 @@ const AddItemForm = ({ categoryId }: Props) => {
   return (
     <form className={'form__container'} onSubmit={handleSubmit(onSubmit)}>
       <CustomInput
-        placeholder={'Nazwa'}
+        placeholder={'Name'}
         className={'form__input'}
         {...register('name', { required: true })}
       />
       <CustomInput
-        placeholder={'Ile sztuk'}
+        placeholder={'quantity'}
         className={'form__input'}
         {...register('quantity', { required: true })}
       />
       <CustomInput
-        placeholder={'Cena za nowy'}
+        placeholder={'Price for new'}
         className={'form__input'}
         {...register('newItemPrice', { required: true })}
       />
       <CustomInput
-        placeholder={'Cena za używany'}
+        placeholder={'Price for used'}
         className={'form__input'}
         {...register('usedItemPrice')}
       />
