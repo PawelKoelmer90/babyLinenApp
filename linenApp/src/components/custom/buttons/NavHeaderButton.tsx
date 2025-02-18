@@ -8,7 +8,12 @@ interface Props {
 
 const navHeaderButton = ({ buttonTitle, page }: Props) => {
   return (
-    <Link className={'button__nav-button'} to={`${page}`}>
+    <Link
+      className={'button__nav-button'}
+      to={`${page}`}
+      type={'string'}
+      title={buttonTitle}
+    >
       {buttonTitle}
     </Link>
   );

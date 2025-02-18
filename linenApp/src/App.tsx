@@ -5,18 +5,17 @@ import ItemDetails from './components/CategoryTable/ItemDetails';
 import NavigationHeader from './components/NavigationHeader/NavigationHeader';
 import ChangeCategoriesPage from './Pages/ChangeCategories/ChangeCategoriesPage';
 
-//TODO sciezki z myślnikiem
-
 function App() {
   return (
     <BrowserRouter basename={'/'}>
-      <NavigationHeader>
+      <NavigationHeader />
+      <div style={{ paddingTop: '2rem' }}>
         <Routes>
           <Route path="/" element={<CategoryTablesContainer />} />
           <Route path="/category/:id" element={<ItemDetails />} />
-          <Route path="/change_categories" element={<ChangeCategoriesPage />} />
+          <Route path="/change-categories" element={<ChangeCategoriesPage />} />
         </Routes>
-      </NavigationHeader>
+      </div>
     </BrowserRouter>
   );
 }

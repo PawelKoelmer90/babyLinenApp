@@ -6,9 +6,18 @@ interface Props {
 }
 
 const Checkbox = ({ isChecked, changeChecked }: Props) => {
+  //TODO add function to update element in table
   return (
     <>
-      <input type={'checkbox'} onClick={changeChecked} checked={isChecked} />
+      <input
+        type={'checkbox'}
+        onClick={(e) => {
+          e.stopPropagation();
+          changeChecked();
+        }}
+        checked={isChecked}
+        onChange={() => console.log('xxx')}
+      />
     </>
   );
 };

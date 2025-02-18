@@ -13,8 +13,3 @@ export const setTableToLocalStorage = (
     JSON.stringify(table)
   );
 };
-
-export const getTableFromLocalStorage = (tableName: string) => {
-  const table = localStorage.getItem(`${tableName}_${STORAGE_KEYS.TABLE}`);
-  return table != null ? JSON.parse(table) : [];
-};

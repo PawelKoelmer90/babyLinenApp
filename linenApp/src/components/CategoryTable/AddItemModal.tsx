@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import AddItemForm from './AddItemForm';
 
 interface Props {
-  categoryId: number;
+  categoryId: number | undefined;
   closeModal: () => void;
 }
 

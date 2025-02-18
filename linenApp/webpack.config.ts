@@ -2,6 +2,8 @@ import path from 'path';
 import { Configuration } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
+const Dotenv = require('dotenv-webpack');
+
 const config: Configuration = {
   mode:
     (process.env.NODE_ENV as 'production' | 'development' | undefined) ??
@@ -56,6 +58,11 @@ const config: Configuration = {
   plugins: [
     new CopyWebpackPlugin({
       patterns: [{ from: 'public' }],
+    }),
+    new Dotenv({
+      path: './.env',
+      safe: true,
+      systemvars: true,
     }),
   ],
 };

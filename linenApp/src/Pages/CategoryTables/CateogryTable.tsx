@@ -6,11 +6,9 @@ import { setTableToLocalStorage } from '../../storage/localStorage';
 import PlusIcon from '../../assets/icons/plusIcon.svg';
 import AddItemModal from '../../components/CategoryTable/AddItemModal';
 import CategoryTableItemsContainer from '../../components/CategoryTable/CategoryTableItemsContainer';
+import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 
 //TODO Paginacja ?
-//TODO controled components - wiedza
-//Todo wszystkie teksty po angielsku
-//todo Generyczny custom hook do pobierania danych
 //TODO Responsive design
 //Todo widoki RWD -> zmiana typu z wielkością urządzenia
 //TODO Fix Navigation
@@ -18,21 +16,23 @@ import CategoryTableItemsContainer from '../../components/CategoryTable/Category
 //Todo Ekran logowania -> symulacja logowania
 //Todo Akcja wylogowania
 //Todo konfiguracja ENV
-//TODO Base Url
 
 interface Props {
   tableTitle: string;
-  tableId: number;
+  tableId: number | undefined;
 }
 
 const CategoryTable = ({ tableTitle, tableId }: Props) => {
   const [items, setItems] = useState<TableItem[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const { fetchData } = useFetchData();
 
   useEffect(() => {
-    fetch('http://localhost:3000/items').then((res) =>
-      res.json().then((data) => setItems(data))
-    );
+    const fetchTablesData = async () => {
+      const data = await fetchData(FetchLink.CATEGORIES);
+      setItems(data);
+    };
+    fetchTablesData();
   }, []);
 
   const deleteItem = (indexToDelete: number) => {

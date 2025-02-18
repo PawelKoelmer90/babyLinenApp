@@ -7,12 +7,12 @@ const NavigationHeader = ({ ...props }) => {
       <header className={'header__nav-container'}>
         <NavHeaderButton buttonTitle={'Home Page'} page={'/'} />
         <NavHeaderButton
-          buttonTitle={'Kategorie'}
-          page={'/change_categories'}
+          buttonTitle={'Categories'}
+          page={'/change-categories'}
         />
-        <NavHeaderButton buttonTitle={'Podsumowanie'} page={'/'} />
-        <NavHeaderButton buttonTitle={'do kupienia'} page={'/'} />
-        <NavHeaderButton buttonTitle={'lista prezentowa'} page={'/'} />
+        <NavHeaderButton buttonTitle={'Summary'} page={'/'} />
+        <NavHeaderButton buttonTitle={'To buy'} page={'/'} />
+        <NavHeaderButton buttonTitle={'Present list'} page={'/'} />
       </header>
       {props.children}
     </div>

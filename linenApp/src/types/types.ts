@@ -1,10 +1,10 @@
 export interface Table {
-  id: number;
+  id?: number;
   tableTitle: string;
 }
 
 export interface TableItem {
-  id: number;
+  id?: number;
   name: string;
   isInStock: boolean;
   quantity: number;

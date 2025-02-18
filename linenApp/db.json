@@ -1,20 +1,15 @@
 {
-  "categories": [
-    {
-      "id": "8d7f",
-      "tableTitle": "Cos tam"
-    }
-  ],
+  "categories": [],
   "items": [
     {
       "id": "1",
       "name": "Wózek",
-      "isInStock": "true",
+      "isInStock": true,
       "quantity": "1",
       "newItemPrice": "3000",
       "usedItemPrice": "700",
       "boughtUsed": "true",
-      "categoryId": "8d7f"
+      "categoryId": null
     }
   ]
 }

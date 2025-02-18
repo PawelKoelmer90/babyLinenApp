@@ -3,37 +3,32 @@ import { Table } from '../../types/types';
 import CustomInput from '../../components/custom/inputs/CustomInput';
 import DeleteIcon from '../../assets/icons/deleteIcon.svg';
 import './changeCategoryPage.scss';
+import { FetchLink, useFetchData } from '../../hooks/useFetchData';
 
 const ChangeCategoriesPage = () => {
   const ref = useRef<HTMLInputElement>(null);
   const [listOfCategories, setListOfCategories] = useState<Table[]>([]);
+  const { fetchData, deleteItem, postItem } = useFetchData();
 
   useEffect(() => {
-    fetch('http://localhost:3000/categories').then((res) =>
-      res.json().then((data) => setListOfCategories(data))
-    );
+    const fetchCategories = async () => {
+      const data = await fetchData(FetchLink.CATEGORIES);
+      setListOfCategories(data);
+    };
+    fetchCategories();
   }, []);
 
-  const getFreshListOfCategories = () => {
-    fetch('http://localhost:3000/categories')
-      .then((res) => res.json())
-      .then((data) => setListOfCategories(data));
+  const getFreshListOfCategories = async () => {
+    const data = await fetchData(FetchLink.CATEGORIES);
+    console.log(data);
+    setListOfCategories(data);
   };
 
-  const handleAddCategory = async (categoryName: string) => {
-    await fetch('http://localhost:3000/categories', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ tableTitle: categoryName }),
+  const handleAddItem = async (title: string) => {
+    await postItem(FetchLink.CATEGORIES, {
+      tableTitle: title,
     });
-  };
-
-  const handleDeleteCategoryItem = async (categoryId: number) => {
-    await fetch(`http://localhost:3000/categories/${categoryId}`, {
-      method: 'DELETE',
-    });
+    await getFreshListOfCategories();
   };
 
   const renderCategories = useMemo(() => {
@@ -44,9 +39,8 @@ const ChangeCategoriesPage = () => {
             {category.tableTitle}
             <div
               onClick={() => {
-                handleDeleteCategoryItem(category.id).then(() => {
-                  getFreshListOfCategories();
-                });
+                deleteItem(FetchLink.CATEGORIES, category.id);
+                getFreshListOfCategories();
               }}
             >
               <DeleteIcon />
@@ -55,12 +49,8 @@ const ChangeCategoriesPage = () => {
         ))}
       </ol>
     );
-  }, [listOfCategories.length]);
-  // submitButton={true}
-  // submitButtonText={'Dodaj kategorię'}
-  // submitButtonFunction={(categoryName) => {
-  //
-  // }}
+  }, [listOfCategories]);
+
   return (
     <>
       <CustomInput
@@ -73,9 +63,8 @@ const ChangeCategoriesPage = () => {
         onClick={() => {
           if (ref.current != null) {
             ref.current.value.trim().length > 0 &&
-              handleAddCategory(ref.current.value).then(() =>
-                getFreshListOfCategories()
-              );
+              handleAddItem(ref.current.value);
+
             ref.current.value = '';
           }
         }}
