@@ -1,10 +1,5 @@
 {
-  "categories": [
-    {
-      "id": "f345",
-      "tableTitle": "Pierwsza"
-    }
-  ],
+  "categories": [],
   "items": [
     {
       "id": "583a",
@@ -12,7 +7,6 @@
       "quantity": "4",
       "newItemPrice": "1200",
       "usedItemPrice": "200",
-      "categoryId": "f345",
       "boughtUsed": false,
       "isInStock": true
     }

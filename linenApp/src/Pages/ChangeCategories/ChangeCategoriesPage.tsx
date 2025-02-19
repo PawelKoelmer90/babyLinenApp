@@ -14,7 +14,7 @@ const ChangeCategoriesPage = () => {
   };
 
   const handleDeleteItem = async (id: string | undefined) => {
-    await deleteCategory(id);
+    deleteCategory(id);
   };
 
   const renderCategories = useMemo(() => {
