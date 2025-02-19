@@ -19,11 +19,7 @@ export const CategoriesContextProvider = ({ ...props }) => {
   const { fetchData, postItem, deleteItem } = useFetchData();
 
   useEffect(() => {
-    const fetchTables = async () => {
-      const data = await fetchData(FetchLink.CATEGORIES);
-      setTableCategories(data);
-    };
-    fetchTables();
+    refreshCategories();
   }, []);
 
   const refreshCategories = async () => {
