@@ -71,7 +71,7 @@ export const ItemsContextProvider = ({ ...props }) => {
     item: TableItem
   ) => {
     try {
-      await updateTableItem(id, item);
+      await updateTableItem(id, { ...item, isInStock: !item.isInStock });
       itemsDispatch({
         type: itemActionType.CHANGE_IS_IN_STOCK,
         payload: { id },

@@ -1,0 +1,18 @@
+@use "../../styles/values";
+
+.panel__container {
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  width: values.$leftPanelWidth;
+  flex-direction: column;
+  border: black solid 1px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  margin-top: values.$headerHeight + 16px;
+}
+
+.panel__container-item {
+  padding-top: 4px;
+}

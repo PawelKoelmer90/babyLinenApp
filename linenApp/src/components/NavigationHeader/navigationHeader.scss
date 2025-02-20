@@ -3,11 +3,12 @@ $headerHeight: 40px;
 .header__nav-container {
   flex: 1;
   display: flex;
+  top: 0;
   box-sizing: border-box;
+  background-color: white;
   position: fixed;
   width: 100%;
   flex-direction: row;
-  height: $headerHeight;
   justify-content: space-around;
   padding-right: 16px;
 }

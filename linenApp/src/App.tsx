@@ -13,7 +13,7 @@ function App() {
       <ItemsContextProvider>
         <BrowserRouter basename={'/'}>
           <NavigationHeader />
-          <div style={{ paddingTop: '2rem' }}>
+          <div>
             <Routes>
               <Route path="/" element={<CategoryTablesContainer />} />
               <Route path="/category/:id" element={<ItemDetails />} />

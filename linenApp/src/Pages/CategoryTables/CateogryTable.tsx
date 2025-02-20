@@ -51,7 +51,9 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
       )}
       <div>
         <div className={'table__header'}>
-          <div className={'table__title'}>{tableTitle}</div>
+          <div id={tableId} className={'table__title'}>
+            {tableTitle}
+          </div>
           <div className={'table__icon'} onClick={() => setModalVisible(true)}>
             <PlusIcon />
           </div>

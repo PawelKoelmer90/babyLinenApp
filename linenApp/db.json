@@ -7,6 +7,34 @@
     {
       "id": "1739974663046",
       "tableTitle": "Do szpitala"
+    },
+    {
+      "id": "1740054532936",
+      "tableTitle": "asdsadsad"
+    },
+    {
+      "id": "1740054534825",
+      "tableTitle": "fsadqweqwe"
+    },
+    {
+      "id": "1740054536108",
+      "tableTitle": "sadsadsad"
+    },
+    {
+      "id": "1740054537278",
+      "tableTitle": "qweqweqwe"
+    },
+    {
+      "id": "1740054538550",
+      "tableTitle": "sadsadsdasd"
+    },
+    {
+      "id": "1740054539832",
+      "tableTitle": "qwewewqe"
+    },
+    {
+      "id": "1740054541216",
+      "tableTitle": "asdsadsads"
     }
   ],
   "items": [
@@ -38,7 +66,17 @@
       "usedItemPrice": "231",
       "categoryId": "1739974663046",
       "boughtUsed": false,
-      "isInStock": true
+      "isInStock": false
+    },
+    {
+      "id": "1369",
+      "name": "asddasd",
+      "quantity": "1123",
+      "newItemPrice": "123142",
+      "usedItemPrice": "12313123",
+      "categoryId": "1739973584689",
+      "boughtUsed": false,
+      "isInStock": false
     }
   ]
 }
