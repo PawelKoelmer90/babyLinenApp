@@ -1,12 +1,10 @@
 import CategoryTableItem from '../../components/CategoryTable/CategoryTableItem';
 import './categoryTable.scss';
-import { useEffect, useState } from 'react';
-import { TableItem } from '../../types/types';
-import { setTableToLocalStorage } from '../../storage/localStorage';
+import { useContext, useMemo, useState } from 'react';
 import PlusIcon from '../../assets/icons/plusIcon.svg';
 import AddItemModal from '../../components/AddItemModal/AddItemModal';
 import CategoryTableItemsContainer from '../../components/CategoryTable/CategoryTableItemsContainer';
-import { FetchLink, useFetchData } from '../../hooks/useFetchData';
+import { ItemsContext } from '../../store/itemsContext';
 
 //TODO Paginacja ?
 //TODO Responsive design
@@ -22,37 +20,26 @@ interface Props {
 }
 
 const CategoryTable = ({ tableTitle, tableId }: Props) => {
-  const [items, setItems] = useState<TableItem[]>([]);
   const [modalVisible, setModalVisible] = useState(false);
-  const { fetchData } = useFetchData();
+  const { items, deleteItem, updateIsInStock } = useContext(ItemsContext);
 
-  useEffect(() => {
-    const fetchTablesData = async () => {
-      const data = await fetchData(FetchLink.ITEMS);
-      setItems(data);
-    };
-    fetchTablesData();
-  }, []);
-
-  const deleteItem = (indexToDelete: number) => {
-    setItems(items.filter((item, index) => indexToDelete !== index));
-    setTableToLocalStorage(tableTitle, items);
-  };
-
-  const addItem = (itemToAdd: TableItem) => {
-    setItems([...items, itemToAdd]);
-    setTableToLocalStorage(tableTitle, items);
-  };
-
-  const handleChangeItem = (index: number) => {
-    setItems((prevState) => {
-      const copy = [...prevState];
-      const itemCopy = { ...copy[index] };
-      itemCopy.isInStock = !copy[index].isInStock;
-      copy[index] = itemCopy;
-      return copy;
-    });
-  };
+  const renderItems = useMemo(() => {
+    return items
+      .filter((item) => item.categoryId === tableId)
+      .map((item, index) => {
+        return (
+          <CategoryTableItem
+            key={item.id}
+            item={item}
+            index={index}
+            changeItemIsInStock={() => {
+              updateIsInStock(item.id, item);
+            }}
+            deleteItem={() => deleteItem(item.id)}
+          />
+        );
+      });
+  }, [items]);
 
   return (
     <>
@@ -69,21 +56,7 @@ const CategoryTable = ({ tableTitle, tableId }: Props) => {
             <PlusIcon />
           </div>
         </div>
-        <CategoryTableItemsContainer>
-          {items
-            .filter((item) => item.categoryId === tableId)
-            .map((item, index) => {
-              return (
-                <CategoryTableItem
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  changeItem={(index) => handleChangeItem(index)}
-                  deleteItem={(index) => deleteItem(index)}
-                />
-              );
-            })}
-        </CategoryTableItemsContainer>
+        <CategoryTableItemsContainer>{renderItems}</CategoryTableItemsContainer>
       </div>
     </>
   );

@@ -2,18 +2,22 @@ import { TableItem } from '../../types/types';
 import './categoryItem.scss';
 import Checkbox from '../custom/inputs/Checkbox';
 import { useNavigate } from 'react-router';
-import { useFetchData } from '../../hooks/useFetchData';
 
 interface Props {
   item: TableItem;
   index: number;
-  changeItem: (index: number) => void;
+  changeItemIsInStock: (index: number) => void;
   deleteItem: (index: number) => void;
 }
 
-const CategoryTableItem = ({ item, index, changeItem, deleteItem }: Props) => {
+//TODO add delete item icon and option
+const CategoryTableItem = ({
+  item,
+  index,
+  changeItemIsInStock,
+  deleteItem,
+}: Props) => {
   const navigate = useNavigate();
-  const { updateTableItem } = useFetchData();
   return (
     <tr
       className="row__category-item"
@@ -27,8 +31,7 @@ const CategoryTableItem = ({ item, index, changeItem, deleteItem }: Props) => {
         <Checkbox
           isChecked={item.isInStock}
           changeChecked={() => {
-            updateTableItem(item.id, { ...item, isInStock: !item.isInStock });
-            changeItem(index);
+            changeItemIsInStock(index);
           }}
         />
       </td>

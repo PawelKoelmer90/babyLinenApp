@@ -1,12 +1,42 @@
 {
-  "categories": [],
+  "categories": [
+    {
+      "id": "1739973584689",
+      "tableTitle": "Pierwszej potrzeby"
+    },
+    {
+      "id": "1739974663046",
+      "tableTitle": "Do szpitala"
+    }
+  ],
   "items": [
     {
-      "id": "583a",
-      "name": "adsad",
-      "quantity": "4",
-      "newItemPrice": "1200",
-      "usedItemPrice": "200",
+      "id": "baca",
+      "name": "Pieluchy",
+      "quantity": "5",
+      "newItemPrice": "50",
+      "usedItemPrice": "20",
+      "categoryId": "1739973584689",
+      "boughtUsed": false,
+      "isInStock": true
+    },
+    {
+      "id": "06c2",
+      "name": "sad",
+      "quantity": "123",
+      "newItemPrice": "123",
+      "usedItemPrice": "123",
+      "categoryId": "1739974663046",
+      "boughtUsed": false,
+      "isInStock": true
+    },
+    {
+      "id": "de7f",
+      "name": "23123",
+      "quantity": "123",
+      "newItemPrice": "14",
+      "usedItemPrice": "231",
+      "categoryId": "1739974663046",
       "boughtUsed": false,
       "isInStock": true
     }

@@ -1,5 +1,7 @@
+@use '../../../styles/values';
+
 .add-category__input {
   border-radius: 8px;
-  margin: 8px;
   padding: 8px;
+  margin: values.$headerHeight 8px 8px;
 }

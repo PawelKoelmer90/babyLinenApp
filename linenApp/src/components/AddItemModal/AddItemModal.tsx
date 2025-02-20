@@ -45,7 +45,7 @@ const AddItemModal = ({ closeModal, categoryId }: Props) => {
         className={'dialog__modal-body'}
         onClick={(e) => e.stopPropagation()}
       >
-        <AddItemForm categoryId={categoryId} />
+        <AddItemForm categoryId={categoryId} closeModal={() => handleClose()} />
       </div>
     </dialog>
   );
